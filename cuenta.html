@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Cuenta – KIT SHINE</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Menú -->
+    <div class="menu-icono" onclick="document.body.classList.toggle('menu-abierto')">☰</div>
+
+    <aside class="menu-lateral">
+        <img src="images/logo.jpeg" class="logo-menu">
+
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="catalogo.html">Catálogo</a>
+            <a href="pedidos.html">Pedidos</a>
+            <a href="carrito.html">Carrito</a>
+            <a href="opiniones.html">Opiniones</a>
+            <a href="contacto.html">Contacto</a>
+            <a href="cuenta.html" class="activo">Cuenta</a>
+        </nav>
+    </aside>
+
+    <!-- Portada -->
+    <section class="portada-chica">
+        <div class="portada-chica-overlay"></div>
+        <h1>Mi Cuenta</h1>
+        <p>Revisa tus datos y tu boleta de compra.</p>
+    </section>
+
+    <!-- Contenido -->
+    <main class="pagina-contenedor cuenta-container">
+
+        <!-- Datos del cliente -->
+        <section class="cuenta-datos">
+            <h2>Datos de la Clienta</h2>
+
+            <div class="cuenta-dato-box">
+                <p><strong>Nombre:</strong> Aleyda (ejemplo)</p>
+                <p><strong>Correo:</strong> ejemplo@correo.com</p>
+                <p><strong>Teléfono:</strong> +51 940 111 222</p>
+                <p><strong>Dirección:</strong> Av. Belleza 123, Lima – Perú</p>
+            </div>
+        </section>
+
+        <!-- Boleta -->
+        <section class="cuenta-boleta">
+            <h2>Boleta de Pago</h2>
+
+            <table class="tabla-boleta">
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Cant.</th>
+                        <th>Precio</th>
+                        <th>Subtotal</th>
+                    </tr>
+                </thead>
+
+                <tbody id="boleta-items">
+                    <!-- Aquí JS agregará los productos del carrito -->
+                </tbody>
+
+                <tfoot>
+                    <tr>
+                        <td colspan="3" class="total-label">TOTAL</td>
+                        <td class="total-monto">S/ <span id="boleta-total">0.00</span></td>
+                    </tr>
+                </tfoot>
+            </table>
+
+            <button class="btn-descargar" onclick="descargarBoleta()">
+                Descargar boleta (PDF)
+            </button>
+            <script>
+            function descargarBoleta() {
+                alert("La boleta ha sido generada correctamente.\n(versión simulada)");
+                }
+            </script>
+        </section>
+        <script src="js/cuenta.js"></script>
+    </main>
+
+    <footer>
+        <p>© 2025 KIT SHINE — Creado por Aleyda</p>
+    </footer>
+
+</body>
+</html>
