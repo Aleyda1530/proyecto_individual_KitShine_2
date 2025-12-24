@@ -10,16 +10,16 @@ BASE_DIR = os.path.dirname(__file__)
 
 def conectar_bd():
     try:
-        # Configuración específica para Aiven Cloud
         return mysql.connector.connect(
             host="kit-shine-unsa-9bd1.i.aivencloud.com",
             port=24071,
             user="avnadmin",
             password="AVNS_0-Mm0V6wcez3L8DL953",
             database="defaultdb",
-            ssl_disabled=False,
-            # Aiven requiere SSL. ssl_verify_cert=False permite conectar sin el archivo .pem
-            ssl_verify_cert=False 
+            # Esto es clave para Aiven en Render:
+            ssl_ca=None, 
+            ssl_verify_cert=False,
+            ssl_disabled=False
         )
     except mysql.connector.Error as err:
         print(f"Error de conexión: {err}")
@@ -129,4 +129,5 @@ if __name__ == "__main__":
     # Usamos 0.0.0.0 para que sea visible en la web
     server = make_server("0.0.0.0", port, app)
     print(f"Servidor iniciado en el puerto {port}...")
+
     server.serve_forever()
